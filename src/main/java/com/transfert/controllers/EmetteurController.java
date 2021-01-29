@@ -1,4 +1,4 @@
-package transfert.controller;
+package com.transfert.controllers;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -14,41 +14,40 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import transfert.entity.Emetteur;
-import transfert.entity.Recepteur;
-import transfert.services.EmetteurService;
-import transfert.services.RecepteurService;
+import com.transfert.entity.Emetteur;
+import com.transfert.services.EmetteurService;
+
 
 @RestController
-public class RecepteurController {
+public class EmetteurController {
 	@Autowired
-	private RecepteurService service;
+	private EmetteurService service;
 
-	@GetMapping("/recepteurs")
-	public List<Recepteur> list() {
+	@GetMapping("/emetteurs")
+	public List<Emetteur> list() {
 		return service.listAll();
 	}
 
-	@GetMapping("/recepteurs/{id}")
-	public ResponseEntity<Recepteur> get(@PathVariable Integer id) {
+	@GetMapping("/emetteurs/{id}")
+	public ResponseEntity<Emetteur> get(@PathVariable Integer id) {
 		try {
-			Recepteur recepteur = service.get(id);
-			return new ResponseEntity<Recepteur>(recepteur, HttpStatus.OK);
+			Emetteur emetteur = service.get(id);
+			return new ResponseEntity<Emetteur>(emetteur, HttpStatus.OK);
 		} catch (NoSuchElementException e) {
-			return new ResponseEntity<Recepteur>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<Emetteur>(HttpStatus.NOT_FOUND);
 		}
 	}
 
-	@PostMapping("/recepteurs/")
-	public void add(@RequestBody Recepteur recepteur) {
-		service.save(recepteur);
+	@PostMapping("/emetteurs/")
+	public void add(@RequestBody Emetteur emetteur) {
+		service.save(emetteur);
 	}
 
-	@PutMapping("/recepteurs/{id}")
-	public ResponseEntity<?> update(@RequestBody Recepteur recepteur, @PathVariable Integer id)  {
+	@PutMapping("/emetteurs/{id}")
+	public ResponseEntity<?> update(@RequestBody Emetteur emetteur, @PathVariable Integer id)  {
 		try {
-		Recepteur existRecepteur = service.get(id);
-		service.save(recepteur);
+		Emetteur existEmetteur = service.get(id);
+		service.save(emetteur);
 
 		return new ResponseEntity<>(HttpStatus.OK);
 	
@@ -57,7 +56,7 @@ public class RecepteurController {
 	}
 }
 	
-	@DeleteMapping("/recepteurs/{id}")
+	@DeleteMapping("/emetteurs/{id}")
 	public void delete(@PathVariable Integer id) {
 		service.delete(id);
 	}

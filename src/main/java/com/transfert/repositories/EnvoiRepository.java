@@ -1,8 +1,12 @@
-package transfert.repository;
+package com.transfert.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import transfert.entity.Envoi;
+import com.transfert.entity.Envoi;
+
+
+
+
 
 public interface EnvoiRepository extends JpaRepository <Envoi, Integer>{
 

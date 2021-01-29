@@ -1,4 +1,4 @@
-package com.transfert.transfert;
+package com.transfert;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

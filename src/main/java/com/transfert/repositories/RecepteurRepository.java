@@ -1,8 +1,12 @@
-package transfert.repository;
+package com.transfert.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import transfert.entity.Recepteur;
+import com.transfert.entity.Recepteur;
+
+
+
+
 
 public interface RecepteurRepository extends JpaRepository <Recepteur, Integer>{
 

@@ -1,14 +1,19 @@
-package transfert.services;
+package com.transfert.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.transfert.entity.Recepteur;
+import com.transfert.repositories.RecepteurRepository;
 
 
-import transfert.entity.Recepteur;
 
-import transfert.repository.RecepteurRepository;
 
+
+
+@Service
 public class RecepteurService {
 
 	@Autowired

@@ -1,4 +1,4 @@
-package transfert.controller;
+package com.transfert.controllers;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.transfert.entity.Envoi;
+import com.transfert.services.EnvoiService;
 
-import transfert.entity.Envoi;
 
-import transfert.services.EnvoiService;
 
 @RestController
 public class EnvoiController {

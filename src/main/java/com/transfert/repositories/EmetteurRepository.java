@@ -1,8 +1,12 @@
-package transfert.repository;
+package com.transfert.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import transfert.entity.Emetteur;
+import com.transfert.entity.Emetteur;
+
+
+
+
 
 public interface EmetteurRepository extends JpaRepository<Emetteur, Integer>{
 

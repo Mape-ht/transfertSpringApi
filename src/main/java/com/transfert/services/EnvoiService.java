@@ -1,15 +1,18 @@
-package transfert.services;
+package com.transfert.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.transfert.entity.Envoi;
+import com.transfert.repositories.EnvoiRepository;
 
 
-import transfert.entity.Envoi;
-
-import transfert.repository.EnvoiRepository;
 
 
+
+@Service
 public class EnvoiService {
 
 	@Autowired

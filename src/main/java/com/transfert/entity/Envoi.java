@@ -1,4 +1,4 @@
-package transfert.entity;
+package com.transfert.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
