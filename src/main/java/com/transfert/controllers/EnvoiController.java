@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,15 +16,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.transfert.entity.Envoi;
+import com.transfert.services.EmetteurService;
 import com.transfert.services.EnvoiService;
+import com.transfert.services.RecepteurService;
 
 
-
+@CrossOrigin
 @RestController
 public class EnvoiController {
 
 	@Autowired
 	private EnvoiService service;
+	@Autowired
+	private EmetteurService serviceemetteur;
+	@Autowired
+	private RecepteurService servicerecepteur;
 
 	@GetMapping("/envois")
 	public List<Envoi> list() {
@@ -40,8 +47,11 @@ public class EnvoiController {
 		}
 	}
 
-	@PostMapping("/envois/")
+	@PostMapping("/envois/add")
 	public void add(@RequestBody Envoi envoi) {
+		
+		serviceemetteur.save(envoi.getEmetteur());		
+		servicerecepteur.save(envoi.getRecepteur());
 		service.save(envoi);
 	}
 

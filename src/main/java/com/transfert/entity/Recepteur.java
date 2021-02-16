@@ -1,5 +1,6 @@
 package com.transfert.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Recepteur {
 	
@@ -19,8 +22,9 @@ public class Recepteur {
 	private String nom;
 	private String prenom;
 	private String telephone;
+	@JsonIgnore
 	@OneToMany(mappedBy = "recepteur", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Envoi> envois;
+	private List<Envoi> envois = new ArrayList<>();
 	
 	public Recepteur() {
 		}

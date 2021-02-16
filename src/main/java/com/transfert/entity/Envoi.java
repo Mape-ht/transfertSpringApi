@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Envoi {
 
@@ -18,12 +20,15 @@ public class Envoi {
 	private int id;
 	private float montant;
 	private String date;
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "emetteur_id", nullable = false)
-	private Emetteur emetteur;
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "recepteur_id", nullable = false)
-	private Recepteur recepteur;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "emetteur_id")
+	private Emetteur emetteur = new Emetteur();
+	
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "recepteur_id")
+	private Recepteur recepteur = new Recepteur();
 	
 	
 	public Envoi() {
